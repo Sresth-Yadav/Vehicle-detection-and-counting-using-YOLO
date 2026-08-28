@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Model weights (downloaded automatically by ultralytics)
+*.pt
+*.onnx
+
+# Video / media files (keep repo light — link to samples instead)
+data/*.mp4
+data/*.avi
+data/*.mov
+outputs/*.mp4
+outputs/*.avi
+outputs/*.csv
+!data/.gitkeep
+!outputs/.gitkeep
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/

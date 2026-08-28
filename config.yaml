@@ -1,0 +1,45 @@
+# ==========================================================
+# Vehicle Tracking & Counting — Configuration
+# ==========================================================
+
+# Path to YOLO weights. "yolov8n.pt" is auto-downloaded by
+# ultralytics on first run. Swap for yolov8s/m/l.pt for higher
+# accuracy at the cost of speed, or your own fine-tuned weights.
+model_path: "yolov8n.pt"
+
+# Confidence / IoU thresholds for detection
+confidence: 0.35
+iou: 0.5
+
+# COCO class ids we care about (vehicles only)
+# 2: car, 3: motorcycle, 5: bus, 7: truck
+vehicle_classes:
+  2: "car"
+  3: "motorcycle"
+  5: "bus"
+  7: "truck"
+
+# ByteTrack tracker config bundled with ultralytics
+tracker: "bytetrack.yaml"
+
+# Counting line — two points (x, y) in pixel coordinates of the
+# INPUT video. A vehicle is counted the frame its centroid crosses
+# from one side of this line to the other.
+# NOTE: update these to match your video's resolution! By default
+# this draws a horizontal line at 60% of a 1280x720 frame.
+counting_line:
+  point1: [0, 432]
+  point2: [1280, 432]
+
+# Direction labels for the two sides of the line
+direction_labels:
+  positive: "IN"
+  negative: "OUT"
+
+# Drawing options
+draw:
+  box_thickness: 2
+  line_thickness: 3
+  font_scale: 0.55
+  show_trail: true
+  trail_length: 30
